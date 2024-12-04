@@ -146,24 +146,5 @@ class TicTacToeGUI:
             pygame.display.update()
     def quit(self):
         pygame.quit()    
-if __name__ == "__main__":
-    gui = TicTacToeGUI()
-    while play_again.lower() == "y":
-        user = 'X'
-        test = True
-        while test == True:
-            userplay = gui.get_user_input()
-            play = user_play(userplay)
-            if play:
-                check = agent_play()
-                gui.agent_move(bourd)
-                if check == -1:
-                    break
-                if check == 0:
-                    break
-        bourd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        method = True
-        play_again = input("if you want to play again type y: ").strip().lower()
-    else:
-        print("Thank you.")
+
 
