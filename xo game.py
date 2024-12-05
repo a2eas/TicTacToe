@@ -404,13 +404,19 @@ if __name__ == "__main__":
             play = user_play(gui.get_user_input())
             if play:
                 check = agent_play()
-                print(gui.agent_move(bourd))
+                gui.agent_move(bourd)
+
+                print(bourd)
                 if check_draw():
                     gui.show_message('Its a draw')
                     print('Its a draw')
-                if check_lose():
+                    over = True
+                    gui.game_over_gui(over)
+                if gui.check_lost():
                     gui.show_message('Agent of Aplus wins')
                     print('Agent of Aplus wins')
+                    over = True
+                    gui.game_over_gui(over)
         bourd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         method = True
         play_again = input("if you want to play again type y: ").strip().lower()
