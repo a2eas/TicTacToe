@@ -408,8 +408,8 @@ if __name__ == "__main__":
 
                 print(bourd)
                 if check_draw():
-                    gui.show_message('Its a draw')
-                    print('Its a draw')
+                    gui.show_message("It's a draw")
+                    print("It's a draw")
                     over = True
                     gui.game_over_gui(over)
                 if gui.check_lost():
