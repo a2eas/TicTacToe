@@ -417,9 +417,6 @@ if __name__ == "__main__":
                     print('Agent of Aplus wins')
                     over = True
                     gui.game_over_gui(over)
-                if gui.check_win():
-                    gui.show_message('You win :)')
-                    print('You win')
         bourd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         method = True
         play_again = input("if you want to play again type y: ").strip().lower()
