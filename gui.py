@@ -88,10 +88,12 @@ class TicTacToeGUI:
         Analyzes the board and updates the screen to show the agent's move ('O').
         Assumes 'O' positions are already in the board (which is passed as 'bourd').
         """
+        print(self.board)
         for row in range(3):
             for col in range(3):
                 if bourd[row][col] == 'O':  # Check for 'O' (agent's move)
                     self.draw_mark(row, col, 'O')
+                    self.board[row][col] = 'O'
 
     def check_draw(self):
         """ Check if the game is a draw (board is full). """
@@ -132,6 +134,9 @@ class TicTacToeGUI:
         text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
         self.screen.blit(text, text_rect)
         pygame.display.update()
+    def game_over_gui(self,over):
+        if over:
+            self.board = [['X', 'X', 'X'], ['X', 'X', 'X'], ['X', 'X', 'X']]
     def mainloop(self):
         self.draw_board()
 
@@ -146,5 +151,4 @@ class TicTacToeGUI:
             pygame.display.update()
     def quit(self):
         pygame.quit()    
-
 
