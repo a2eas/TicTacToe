@@ -394,8 +394,8 @@ def check_lose():
 
 
 if __name__ == "__main__":
-    play_again = "y"
-    while play_again.lower() == "y":
+    play_again = True
+    while play_again:
         gui = TicTacToeGUI()
         user = 'X'
         agent = 'O'
@@ -405,20 +405,21 @@ if __name__ == "__main__":
             if play:
                 check = agent_play()
                 gui.agent_move(bourd)
-
                 print(bourd)
                 if check_draw():
                     gui.show_message("It's a draw")
                     print("It's a draw")
                     over = True
                     gui.game_over_gui(over)
+                    gui.draw_button()
+                    bourd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+                    method = True
                 if gui.check_lost():
                     gui.show_message('Agent of Aplus wins')
                     print('Agent of Aplus wins')
                     over = True
                     gui.game_over_gui(over)
-        bourd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        method = True
-        play_again = input("if you want to play again type y: ").strip().lower()
-    else:
-        print("Thank you.")
+                    gui.draw_button()
+                    bourd = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+                    method = True
+        play_again = gui.restart()
