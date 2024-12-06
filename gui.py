@@ -95,13 +95,6 @@ class TicTacToeGUI:
                     self.draw_mark(row, col, 'O')
                     self.board[row][col] = 'O'
 
-    def check_draw(self):
-        """ Check if the game is a draw (board is full). """
-        for row in self.board:
-            for cell in row:
-                if isinstance(cell, int):  # If there's still an empty spot, it's not a draw
-                    return False
-        return True
     def check_win(self):
         """ Check for a win condition. """
         # Check rows, columns, and diagonals
@@ -175,18 +168,5 @@ class TicTacToeGUI:
         text_rect = text.get_rect(center=(button_x + button_width // 2, button_y + button_height // 2))
         self.screen.blit(text, text_rect)
         pygame.display.update()
-    def mainloop(self):
-        self.draw_board()
-
-        while True:
-            user_input = self.get_user_input()
-            if user_input:
-                print(f"User played at {user_input}")
-                # After user input, you can have the agent play
-                # Example: agent_move(5) if the agent plays at the center
-                self.agent_move(4)
-
-            pygame.display.update()
     def quit(self):
         pygame.quit()    
-
